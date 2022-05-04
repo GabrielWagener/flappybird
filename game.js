@@ -8,18 +8,94 @@ const contexto = canvas.getContext ('2d');
 
 
 
-contexto.drawImage(
-    sprites,
-     0, 0, //sprite X, sprite Y
-     33, 24, //tamanho do recorte no sprites
-     10, 50, 
-     33, 24,
+
+
+// plano de fundo
+const planoDeFundo = {
+    spriteX: 390,
+    spriteY: 0,
+    largura: 275, 
+    altura: 204,
+    x: 0,
+    y: canvas.height - 204,
+    desenha() {
+        contexto.fillStyle = '#70c5ce';
+        contexto.fillRect(0,0, canvas.width, canvas.height)
+    
+        contexto.drawImage(
+          sprites,
+          planoDeFundo.spriteX, planoDeFundo.spriteY,
+          planoDeFundo.largura, planoDeFundo.altura,
+          planoDeFundo.x, planoDeFundo.y,
+          planoDeFundo.largura, planoDeFundo.altura,
+        );
+    
+        contexto.drawImage(
+          sprites,
+          planoDeFundo.spriteX, planoDeFundo.spriteY,
+          planoDeFundo.largura, planoDeFundo.altura,
+          (planoDeFundo.x + planoDeFundo.largura), planoDeFundo.y,
+          planoDeFundo.largura, planoDeFundo.altura,
+        );
+      },
+}
+
+// chao
+const chao = {
+    spriteX: 0,
+    spriteY: 610,
+    largura: 224,
+    altura: 112,
+    x: 0,
+    y: canvas.height - 112,
+    desenha() {
+      contexto.drawImage(
+        sprites,
+        chao.spriteX, chao.spriteY,
+        chao.largura, chao.altura,
+        chao.x, chao.y,
+        chao.largura, chao.altura,
+      );
+  
+      contexto.drawImage(
+        sprites,
+        chao.spriteX, chao.spriteY,
+        chao.largura, chao.altura,
+        (chao.x + chao.largura), chao.y,
+        chao.largura, chao.altura,
+      );
+    },
+
+}
+
+// flappybird
+const flappybird = {
+spriteX: 0,
+spriteY: 0,
+largura: 33,
+altura: 24,
+x: 10,
+y: 50,
+desenha(){
+    contexto.drawImage(
+        sprites,
+        flappybird.spriteX, flappybird.spriteY, //sprite X, sprite Y
+        flappybird.largura,flappybird.altura,  //tamanho do recorte no sprites
+        flappybird.x, flappybird.x,
+        flappybird.largura, flappybird.altura,
      );
+    
+} 
+};
 
+function loop(){
+        planoDeFundo.desenha();
+        chao.desenha();
+        flappybird.desenha();
 
-     function loop(){ 
-
+        flappybird.y = flappybird.y + 1;
         requestAnimationFrame(loop);
-     }
+     
+    };
 
-     loop();
+     loop()
