@@ -12,33 +12,33 @@ const contexto = canvas.getContext ('2d');
 
 // plano de fundo
 const planoDeFundo = {
-    spriteX: 390,
-    spriteY: 0,
-    largura: 275, 
-    altura: 204,
-    x: 0,
-    y: canvas.height - 204,
-    desenha() {
-        contexto.fillStyle = '#70c5ce';
-        contexto.fillRect(0,0, canvas.width, canvas.height)
-    
-        contexto.drawImage(
-          sprites,
-          planoDeFundo.spriteX, planoDeFundo.spriteY,
-          planoDeFundo.largura, planoDeFundo.altura,
-          planoDeFundo.x, planoDeFundo.y,
-          planoDeFundo.largura, planoDeFundo.altura,
-        );
-    
-        contexto.drawImage(
-          sprites,
-          planoDeFundo.spriteX, planoDeFundo.spriteY,
-          planoDeFundo.largura, planoDeFundo.altura,
-          (planoDeFundo.x + planoDeFundo.largura), planoDeFundo.y,
-          planoDeFundo.largura, planoDeFundo.altura,
-        );
-      },
-}
+  spriteX: 390,
+  spriteY: 0,
+  largura: 275,
+  altura: 204,
+  x: 0,
+  y: canvas.height - 204,
+  desenha() {
+    contexto.fillStyle = '#70c5ce';
+    contexto.fillRect(0,0, canvas.width, canvas.height)
+
+    contexto.drawImage(
+      sprites,
+      planoDeFundo.spriteX, planoDeFundo.spriteY,
+      planoDeFundo.largura, planoDeFundo.altura,
+      planoDeFundo.x, planoDeFundo.y,
+      planoDeFundo.largura, planoDeFundo.altura,
+    );
+
+    contexto.drawImage(
+      sprites,
+      planoDeFundo.spriteX, planoDeFundo.spriteY,
+      planoDeFundo.largura, planoDeFundo.altura,
+      (planoDeFundo.x + planoDeFundo.largura), planoDeFundo.y,
+      planoDeFundo.largura, planoDeFundo.altura,
+    );
+  },
+};
 
 // chao
 const chao = {
@@ -97,23 +97,21 @@ desenha(){
 
 //mensagemGetReady
 const mensagemGetReady = {
-    sx: 134,
-    sY: 0,  
-    w: 174,
-    h: 152,
-    x: (canvas.width / 2) - 174 / 2,
-    y: 50,
-
-    desenha(){
-
-        contexto.drawImage(
-            sprites,
-            mensagemGetReady.spriteX, mensagemGetReady.spriteY,
-            mensagemGetReady.largura, mensagemGetReady.altura,
-            mensagemGetReady.x, mensagemGetReady.y,
-            mensagemGetReady.largura, mensagemGetReady.altura,
-        );
-    }
+  sX: 134,
+  sY: 0,
+  w: 174,
+  h: 152,
+  x: (canvas.width / 2) - 174 / 2,
+  y: 50,
+  desenha() {
+    contexto.drawImage(
+      sprites,
+      mensagemGetReady.sX, mensagemGetReady.sY,
+      mensagemGetReady.w, mensagemGetReady.h,
+      mensagemGetReady.x, mensagemGetReady.y,
+      mensagemGetReady.w, mensagemGetReady.h
+    );
+  }
 }
 
 //
